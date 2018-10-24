@@ -2,7 +2,7 @@
     "name": "get-color-name",
     "displayName": "Get Color Name",
     "description": "Extension help to get color name by code.",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "publisher": "volynetsserhii",
     "license": "Apache-2.0",
     "engines": {
@@ -27,7 +27,7 @@
     },
     "homepage": "https://github.com/volynetsSerhii/get-color-name/blob/master/README.MD",
     "activationEvents": [
-        "onCommand:extension.convertName"
+        "*", "onCommand:extension.convertName"
     ],
     "main": "./extension",
     "contributes": {
