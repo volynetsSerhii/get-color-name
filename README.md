@@ -3,10 +3,10 @@
 This extension convert HEX color value to pair of key-value adapted for ReacNative.
 
 ! Before use this extension please put some value to clipboard from any source (for example use CMD-C). Value should be one of this patterns:
-* #000000,
-* 000000,
-* #000,
-* 000
+- "#000000",
+- "000000",
+- "#000",
+- "000"
 
 ## Features
 
