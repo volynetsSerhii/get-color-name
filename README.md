@@ -1,65 +1,38 @@
-# get-color-name README
+# Get name color
 
-This is the README for your extension "get-color-name". After writing up a brief description, we recommend including the following sections.
+This extension convert HEX color value to pair of key-value adapted for ReacNative.
+
+! Before use this extension please put some value to clipboard from any source (for example use CMD-C). Value should be one of this patterns:
+* #000000,
+* 000000,
+* #000,
+* 000
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. 🆕 Convert clipboard HEX value to a pair key-value via shortcut CMD-ALT-V
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoShortcut.gif)
 
-For example if there is an image subfolder under your extension project workspace:
+1. 🆕 Convert clipboard HEX value to a pair key-value via comand line CMD-SHIFT-P
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoConsole.gif)
 
-\!\[feature X\]\(images/feature-x.png\)
+1. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gnc)
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSnippet.gif)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
+## Options (settings)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+#### No options.
 
-## Extension Settings
+## Release
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Latest 0.0.x (2018.10.24)
 
-For example:
+- 💡 Creating snippets for extension (gnc).
+- Creating shortcut (CMD+ALT+V).
+- 🚀 Started extension.
 
-This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+## Contributing
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Bugs, feature requests and more are welcome here [GitHub Issues](https://github.com/KamiKillertO/vscode-colorize/issues).

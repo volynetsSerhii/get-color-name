@@ -1,0 +1,9 @@
+{
+  "Get Color Name From Code": {
+    "prefix": "gcn",
+    "body": [
+      "${1:PRESS CMD+ALT+V TO INSERT CONVERTED VALUE FROM '$CLIPBOARD'}"
+    ],
+    "description": "Get Color Name"
+  }
+}

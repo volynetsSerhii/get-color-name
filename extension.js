@@ -1,30 +1,31 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const ncp = require('copy-paste');
+const ntc = require('./ntc').ntc;
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 function activate(context) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "get-color-name" is now active!');
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', function () {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+    let disposable = vscode.commands.registerCommand('extension.convertName', function () {
+        let editor = vscode.window.activeTextEditor;
+        let clipBoardValue = ncp.paste();
+        if (!editor) {
+            vscode.window.showInformationMessage('No open text editor!');
+            return; 
+        }
+        editor.edit((e)=> {
+            let selectionRange = new vscode.Range (editor.selection.start, editor.selection.end);
+            ntc.init();
+            let colorArray = ntc.name(clipBoardValue);
+            let colorName = colorArray[2] === false ? "error" : colorArray[2];
+            let pastingValue = colorName + ": \"" + colorArray[0]+"\",";
+            e.delete(selectionRange);
+            e.insert(editor.selection.active, pastingValue);
+            editor.selection = new vscode.Selection(editor.selection.end, editor.selection.end);
+        });
     });
-
     context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
 function deactivate() {
 }
 exports.deactivate = deactivate;
