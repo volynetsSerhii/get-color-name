@@ -3,13 +3,29 @@
     "displayName": "Get Color Name",
     "description": "Extension help to get color name by code.",
     "version": "0.0.1",
-    "publisher": "VolynetsSerhii",
+    "publisher": "volynetsserhii",
+    "license": "Apache-2.0",
     "engines": {
         "vscode": "^1.28.0"
     },
     "categories": [
         "Other"
     ],
+    "keywords": [
+		"color",
+		"name",
+		"react",
+		"native",
+		"reactnative"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/volynetsSerhii/get-color-name.git"
+	},
+	"bugs": {
+		"url": "https://github.com/volynetsSerhii/get-color-name/issues"
+	},
+	"homepage": "https://github.com/volynetsSerhii/get-color-name/blob/master/README.MD",
     "activationEvents": [
         "onCommand:extension.convertName"
     ],

@@ -1,4 +1,4 @@
-# Get name color
+# Get color name
 
 This extension convert HEX color value to pair of key-value adapted for ReacNative.
 
