@@ -1,0 +1,55 @@
+{
+    "name": "get-color-name",
+    "displayName": "Get Color Name",
+    "description": "Extension help to get color name by code.",
+    "version": "0.0.1",
+    "publisher": "VolynetsSerhii",
+    "engines": {
+        "vscode": "^1.28.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.convertName"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.convertName",
+                "title": "Get Color Name From Code: RUN"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.convertName",
+                "key": "alt+cmd+v",
+                "mac": "alt+cmd+v",
+                "when": "editorTextFocus"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^8.10.25",
+        "copy-paste": "^1.3.0",
+        "eslint": "^4.11.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21"
+    }
+}
