@@ -1,3 +1,10 @@
+/*
+* @Author: Volynets Serhii
+* @Date: 2018-10-25 17:16:40
+* @Last Modified by: Volynets Serhii
+* @Last Modified time: 2018-10-25 17:16:40
+* @flow
+*/
 exports.NAMES = [
   ["000000", "Black"],
   ["000080", "Navy Blue"],

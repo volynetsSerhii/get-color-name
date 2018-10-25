@@ -11,12 +11,15 @@ This extension convert HEX color value to pair of key-value adapted for ReacNati
 ## Features
 
 1. 🆕 Convert clipboard HEX value to a pair key-value via shortcut CMD-ALT-V
+
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoShortcut.gif)
 
-1. 🆕 Convert clipboard HEX value to a pair key-value via comand line CMD-SHIFT-P
+2. 🆕 Convert clipboard HEX value to a pair key-value via comand line CMD-SHIFT-P
+
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoConsole.gif)
 
-1. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gnc)
+3. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gnc)
+
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSnippet.gif)
 
 

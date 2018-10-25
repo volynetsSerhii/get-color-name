@@ -1,4 +1,4 @@
-const NAMES = require('./config/NAMES.constants').NAMES;
+const NAMES = require('../config/NAMES.constants').NAMES;
 
 const ntc = {
   init: function() {

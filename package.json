@@ -1,10 +1,11 @@
 {
     "name": "get-color-name",
     "displayName": "Get Color Name",
-    "description": "Extension help to get color name by code.",
-    "version": "0.0.4",
+    "description": "Extension help to get color name from code.",
+    "version": "0.0.5",
     "publisher": "volynetsserhii",
     "license": "Apache-2.0",
+    "icon": "assets/logo.png",
     "engines": {
         "vscode": "^1.28.0"
     },
@@ -27,20 +28,155 @@
     },
     "homepage": "https://github.com/volynetsSerhii/get-color-name/blob/master/README.MD",
     "activationEvents": [
-        "*", "onCommand:extension.convertName"
+        "*", "onCommand:extension.getConfigured"
     ],
-    "main": "./extension",
+    "main": "./src",
     "contributes": {
+        "configuration": {
+            "title": "Get Color Name",
+            "properties": {
+              "statusbar.support": {
+                "default": true,
+                "title": "Statusbar availability to show color name.",
+                "type": "boolean",
+                "markdownDescription": "Show in statusbar color name"
+              },
+              "XML.support": {
+                "default": false,
+                "title": "Availability to use XML tag.",
+                "type": "boolean",
+                "markdownDescription": "Use XML tag <color name=\"ColorName\">HexValue</color>"
+              },
+              "nameFormat.prefix": {
+                "title": "Select output name prefix",
+                "default": "None",
+                "enum": [
+                    "None",
+                    "--",
+                    "@",
+                    "$"
+                ],
+                "type": "string",
+                "markdownDescription": "Select whichone from prefix do you add to output name"
+              },
+              "assign.symbol": {
+                "title": "Select assign symbol",
+                "default": ":",
+                "enum": [
+                    ":",
+                    "=",
+                    ":="
+                ],
+                "type": "string",
+                "markdownDescription": "Select whichone from assign symbol do you use in construction key-value"
+              },
+              "nameFormat.separator": {
+                "title": "Select output name separator",
+                "default": "None",
+                "enum": [
+                    "None",
+                    "-",
+                    "_"
+                ],
+                "type": "string",
+                "markdownDescription": "Select whichone from separator do you add to output name"
+              },              
+              "nameFormat.literal": {
+                "title": "Select output name literal format",
+                "default": "camelCase",
+                "enum": [
+                    "lowercase",
+                    "camelCase",
+                    "CapitalLetters",
+                    "UPPERCASE"
+                ],
+                "type": "string",
+                "markdownDescription": "Select in which format do you prefer to get output name literal"
+              },
+              "valueFormat.quotes": {
+                "title": "Select output value quotes",
+                "default": "\"",
+                "enum": [
+                    "None",
+                    "\" Double quotes",
+                    "' Single quotes"
+                ],
+                "type": "string",
+                "markdownDescription": "Select whichone from quotes do you add to output value"
+              },
+              "valueFormat.ending": {
+                "title": "Select output value ending",
+                "default": ",",
+                "enum": [
+                    "None",
+                    ", Comma",
+                    "; Semicolon"
+                ],
+                "type": "string",
+                "markdownDescription": "Select whichone from ending do you add to output value"
+              },
+              "valueFormat.coding": {
+                "title": "Select output value format",
+                "default": "RGB hexadecimal",
+                "enum": [
+                    "Don't convert",
+                    "RGB hexadecimal",
+                    "RGB functional",
+                    "HSL functional"
+                ],
+                "type": "string",
+                "markdownDescription": "Select in which format do you prefer to contert output value"
+              },
+              "input.source": {
+                "title": "Select source for input value",
+                "default": "Selection",
+                "enum": [
+                    "Selection",
+                    "Clipboard"
+                ],
+                "type": "string",
+                "markdownDescription": "Select which source have advantage and will be use as input value."
+              }
+            }
+        },
         "commands": [
             {
-                "command": "extension.convertName",
-                "title": "Get Color Name From Code: RUN"
-            }
+                "command": "extension.getConfigured",
+                "title": "Get Color Name: configured"
+            },
+            {
+                "command": "extension.getRGBhexdecimal",
+                "title": "Get Color Name: RGB hexadecimal"
+            },  
+            {
+                "command": "extension.getRGBfunctional",
+                "title": "Get Color Name: RGB functional"
+            },
+            {
+                "command": "extension.getHSLfunctional",
+                "title": "Get Color Name: HSL functional"
+            },
+            {
+                "command": "extension.convertConfigured",
+                "title": "Convert Color Value: configured"
+            },
+            {
+                "command": "extension.convertRGBhexdecimal",
+                "title": "Convert Color Value: RGB hexadecimal"
+            },  
+            {
+                "command": "extension.convertRGBfunctional",
+                "title": "Convert Color Value: RGB functional"
+            },
+            {
+                "command": "extension.convertHSLfunctional",
+                "title": "Convert Color Value: HSL functional"
+            }                    
         ],
         "keybindings": [
             {
-                "command": "extension.convertName",
-                "key": "alt+cmd+v",
+                "command": "extension.getConfigured",
+                "key": "alt+ctrl+v",
                 "mac": "alt+cmd+v",
                 "when": "editorTextFocus"
             }
