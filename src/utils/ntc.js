@@ -1,3 +1,10 @@
+/*
+* @Author: Volynets Serhii
+* @Date: 2018-10-26 10:15:42
+* @Last Modified by: Volynets Serhii
+* @Last Modified time: 2018-10-26 10:15:42
+* @flow
+*/
 const NAMES = require('../config/NAMES.constants').NAMES;
 
 const ntc = {
