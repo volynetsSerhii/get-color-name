@@ -1,16 +1,17 @@
 /*
-* @Author: Volynets Serhii
-* @Date: 2018-10-25 17:16:28
+ * @Author: Volynets Serhii 
+ * @Date: 2018-10-29 15:42:16 
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-10-26 10:41:27
-* @flow
-*/
+ * @Last Modified time: 2018-10-29 15:42:54
+ * @flow  
+ */
+
 const vscode = require('vscode');
 const extensions = require('./extensions');
 
 function activate(context) {
     const { registerCommand } = vscode.commands;
-    const { push } = context.subscriptions;
+    const { subscriptions } = context;
     const {
         getConfigured,
         getRGBhexdecimal,
@@ -31,14 +32,14 @@ function activate(context) {
     const subConvertRGBfunctional = registerCommand('extension.convertRGBfunctional', convertRGBfunctional);
     const subConvertHSLfunctional = registerCommand('extension.convertHSLfunctional', convertHSLfunctional);
 
-    push(subGetConfigured);
-    push(subGetRGBhexdecimal);
-    push(subGetRGBfunctional);
-    push(subGetHSLfunctional);
-    push(subConvertConfigured);
-    push(subConvertRGBhexdecimal);
-    push(subConvertRGBfunctional);
-    push(subConvertHSLfunctional);
+    subscriptions.push(subGetConfigured);
+    subscriptions.push(subGetRGBhexdecimal);
+    subscriptions.push(subGetRGBfunctional);
+    subscriptions.push(subGetHSLfunctional);
+    subscriptions.push(subConvertConfigured);
+    subscriptions.push(subConvertRGBhexdecimal);
+    subscriptions.push(subConvertRGBfunctional);
+    subscriptions.push(subConvertHSLfunctional);
 }
 exports.activate = activate;
 
