@@ -1,11 +1,11 @@
 /*
 * @Author: Volynets Serhii
 * @Date: 2018-10-25 17:16:40
-* @Last Modified by: Volynets Serhii
-* @Last Modified time: 2018-10-25 17:16:40
+ * @Last Modified by: Volynets Serhii
+ * @Last Modified time: 2018-11-05 12:10:42
 * @flow
 */
-exports.NAMES = [
+const NAMES = [
   ["000000", "Black"],
   ["000080", "Navy Blue"],
   ["0000C8", "Dark Blue"],
@@ -1573,3 +1573,5 @@ exports.NAMES = [
   ["FFFFF0", "Ivory"],
   ["FFFFFF", "White"]
 ]
+
+module.exports = NAMES;

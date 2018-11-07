@@ -18,7 +18,7 @@ This extension convert HEX color value to pair of key-value adapted for ReacNati
 
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoConsole.gif)
 
-3. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gnc)
+3. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gcn)
 
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSnippet.gif)
 

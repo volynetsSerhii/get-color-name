@@ -2,7 +2,7 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 14:01:54
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-10-26 14:10:03
+ * @Last Modified time: 2018-11-05 09:45:52
 * @flow
 */
 const vscode = require('vscode');
@@ -16,6 +16,9 @@ const selection = {
   get: () => {
     return editor.selection;
   },
+  getEditor: () => {
+    return editor;
+  }
 };
 
 module.exports = selection;

@@ -2,9 +2,10 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 12:48:57
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-02 15:52:06
+ * @Last Modified time: 2018-11-06 12:49:57
 * @flow
 */
+const NAMES = require('../config/names.constants');
 
 function getNumber(string, maxValue, radix) {
   let number = parseFloat(string, radix || 10);
@@ -33,6 +34,9 @@ function getHexValues(inputString) {
       index += 1;
     }
     if ([4,5,7,9].includes(findColor.value.length)) {
+      if ([5,9].includes(findColor.value.length)) {
+        findColor.type = "HEXA";
+      }
       returnColors.push(findColor);
     };
     startIndex = inputString.indexOf('#', index);
@@ -140,7 +144,7 @@ function convertHexAToRgbA(value, alphaFrom, alphaTo) {
   if (alphaFrom) {
     if (alphaTo) {
       Object.assign( result, {
-        a: Math.round(parseInt(value.substring(7, 9), 16) / 255 * 100) / 100,
+        a: parseInt(value.substring(7, 9), 16) / 255,
       });
     }
   } else {
@@ -155,10 +159,10 @@ function convertHexAToRgbA(value, alphaFrom, alphaTo) {
 
 function convertRgbAToHexA(value, alphaFrom, alphaTo) {
   const { r, g, b , a } = value;
-  let result = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+  let result = '#' + Math.round(r).toString(16) + Math.round(g).toString(16) + Math.round(b).toString(16);
   if (alphaFrom) {
     if (alphaTo) {
-      result += Math.round((a * 255)).toString(16);
+      result += Math.round(a * 255).toString(16);
     }
   } else {
     if (alphaTo) {
@@ -173,8 +177,8 @@ function convertRgbAToHslA(value, alphaFrom, alphaTo) {
   r = r / 255;
   g = g / 255;
   b = b / 255;
-  let min = Math.min(r, Math.min(g, b));
-  let max = Math.max(r, Math.max(g, b));
+  let min = Math.min(r, g, b);
+  let max = Math.max(r, g, b);
   let h, s, l = (max + min) / 2;
   let d = max - min;
 
@@ -192,9 +196,9 @@ function convertRgbAToHslA(value, alphaFrom, alphaTo) {
     h /= 6;
   }
   let result = { 
-    h: Math.round(h * 360), 
-    s: Math.round(s * 100) , 
-    l: Math.round(l * 100) 
+    h: h * 360, 
+    s: s * 100, 
+    l: l * 100, 
   };
 
   if (alphaFrom) {
@@ -221,6 +225,7 @@ function convertHexAToHslA(value, alphaFrom, alphaTo) {
 }
 
 function convertHslAToRgbA(value, alphaFrom, alphaTo) {
+  let r, g, b;
   let { h, s, l, a } = value;
     h /= 360;
     s /= 100;
@@ -246,11 +251,11 @@ function convertHslAToRgbA(value, alphaFrom, alphaTo) {
   }
   
   let result = { 
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255),
+    r: r * 255,
+    g: g * 255,
+    b: b * 255,
   };
-
+  
   if (alphaFrom) {
     if (alphaTo) {
       Object.assign( result, {
@@ -274,19 +279,27 @@ function convertHslAToHexA(value, alphaFrom, alphaTo) {
   return result;
 }
 
+function convertHexToHsl255(valueHEX) {
+  let { h, s, l } = convertHexAToHslA(valueHEX, false, false);
+  h = h / 360 * 255;
+  s = s / 100 * 255;
+  l = l / 100 * 255;  
+  return { h, s, l }; 
+}
+
 const color = {
   //return HEX RGB HSL Array
-  getFromString: (inputString) => {
+  getFromString: function (inputString) {
     inputString = inputString.toString().toUpperCase();
     //fixed situation with HEX end symbols
-    inputString = inputString.replace(/ [A,B,C,D,E,F]/g, " Z");
+    inputString = inputString.replace(/[\s,\n][A,B,C,D,E,F]/g, " Z");
     inputString = [...inputString]
       .filter(el => el !== " ")
       .filter(el => el !== "\n");
     inputString = inputString.join("");
     return getHexValues(inputString).concat(getFunctionalColor(inputString));
   },
-  convert: (value, fromType, toType) => {
+  convert: function (value, fromType, toType) {
     // Check the same types
     if (fromType === toType) {
       return value;
@@ -372,6 +385,55 @@ const color = {
       } else { return null }      
     } else { return null }  
   },
+  getName: function (valueHEX) {
+    const { r, g, b } = convertHexAToRgbA(valueHEX, false, false);
+    // console.log(r + " " + g + " " + b + " ")
+    const { h, s, l } = convertHexToHsl255(valueHEX)
+    // console.log(h + " " + s + " " + l + " ")
+    //Normalize HEX value to 6 digits  
+    if (valueHEX.length === 5) {
+      valueHEX.substring(0,4);
+    }
+    if (valueHEX.length === 9) {
+      valueHEX.substring(0,7);
+    }
+    if ([4,7].includes(valueHEX.length)) {
+      if (valueHEX.length === 4){
+        valueHEX = valueHEX.substring(0,1) + 
+          valueHEX.substring(1,2).repeat(2) + 
+          valueHEX.substring(2,3).repeat(2) +
+          valueHEX.substring(3,4).repeat(2);
+      }
+      valueHEX = valueHEX.slice(1);
+    }
+    //Add rgb and hsl values
+    const names = [...NAMES].map(element => {
+      return {
+        value: element[0],
+        name: element[1],
+        rgb: convertHexAToRgbA("#" + element[0], false, false),
+        hsl: convertHexToHsl255("#" + element[0]),
+      }
+    })
+    let findIndex = -1,
+    rgbPowValue = 0, 
+    hslPowValue = 0,
+    controlValue = 0,
+    delta = -1;
+    let element;
+    for (let index = 0; index < names.length; index++) {
+      element = names[index];
+      rgbPowValue = Math.pow(r - element.rgb.r, 2) + Math.pow(g - element.rgb.g, 2) + Math.pow(b - element.rgb.b, 2);
+      hslPowValue = Math.pow(h - element.hsl.h, 2) + Math.pow(s - element.hsl.s, 2) + Math.pow(l - element.hsl.l, 2);
+      controlValue = rgbPowValue + hslPowValue * 2;
+      if (delta < 0 || delta > controlValue)
+      {
+        delta = controlValue;
+        findIndex = index;
+      }
+    }
+    return names[findIndex].name;
+  }
 };
 
 module.exports = color;

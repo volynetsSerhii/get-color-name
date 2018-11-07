@@ -2,11 +2,15 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-25 18:24:03
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-10-26 10:46:26
+ * @Last Modified time: 2018-11-06 14:02:49
 * @flow
 */
+const { utils } = require('../utils/');
+
 const getRGBfunctional = () => {
-  console.log("getRGBfunctional");
+  const { source } = utils;
+  let outValues = source.convertTo("RGB");
+  source.set(outValues, "RGB", true);
 };
 
 module.exports = getRGBfunctional;
