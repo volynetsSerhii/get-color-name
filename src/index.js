@@ -2,7 +2,7 @@
  * @Author: Volynets Serhii 
  * @Date: 2018-10-29 15:42:16 
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-08 10:43:32
+ * @Last Modified time: 2018-11-08 11:43:25
  * @flow  
  */
 
@@ -16,7 +16,7 @@ function updateStatusBar (items) {
     const { statusBarColorPicker, statusBarColorCount } = items;
     let editor = window.activeTextEditor;
     if (!editor) {
-        items.forEach(item => item.hide());
+        items && items.forEach(item => item.hide());
         return;
     }
     let doc = editor.document;
