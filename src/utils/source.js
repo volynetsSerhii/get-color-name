@@ -2,7 +2,7 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 10:15:38
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-06 14:19:23
+ * @Last Modified time: 2018-11-08 10:43:33
 * @flow
 */
 const clipboard = require('copy-paste');
@@ -51,6 +51,13 @@ const source = {
     }
     return returnValue;
   },
+  getTab: function () {
+    const selectionValue = selection.get();
+    const doc = vscode.window.activeTextEditor.document;
+    const startLineText = doc.lineAt(selectionValue.start.line).text;
+    const startLineTab = startLineText ? startLineText.match(/\s/gy).join("") : "";
+    return startLineTab;
+  },
   convertTo: function (type) {
     const source = this.get();
     const convertedValues = [];
@@ -69,6 +76,7 @@ const source = {
   },
   set: function (values, outType, withName) {
     const selectionValue = selection.get();
+    const tabValue = this.getTab();
     const editor = selection.getEditor();
     const setupConfiguration = vscode.workspace.getConfiguration("gcn");
     values = values.map(element => {
@@ -80,7 +88,6 @@ const source = {
           return `<color name=\"${nameAplayFormat(element.name, "CapitalLetters","")}\">${color.convert(element.value, element.type, "HEX")}</color>`;
         }
       }
-
       //NAME
       let name = "";
       let value = "";
@@ -119,8 +126,16 @@ const source = {
       }
       return withName ? name + value : value;
     })
-    editor.edit(edit => edit.delete(selectionValue))
-    .then( success => success && editor.edit(edit => edit.insert(selectionValue.start, values.join("\n"))));
+    if (values.length !== 0) {
+      if (selectionValue.start.character < tabValue.length) {
+        values[0] = " ".repeat(tabValue.length - selectionValue.start.character) + values[0];
+      }
+      editor.edit(edit => edit.replace(new vscode.Range(selectionValue.start, selectionValue.end),
+        values.join("\n"+tabValue)));
+      //Another way but vscode has bug
+      // editor.edit(edit => edit.delete(selectionValue))
+      //   .then( success => success && editor.edit(edit => edit.insert(selectionValue.start, values.join("\n"+tabValue))));
+    }
   },
 };
 
