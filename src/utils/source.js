@@ -2,7 +2,7 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 10:15:38
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-08 10:43:33
+ * @Last Modified time: 2018-11-08 16:05:41
 * @flow
 */
 const clipboard = require('copy-paste');
@@ -76,7 +76,6 @@ const source = {
   },
   set: function (values, outType, withName) {
     const selectionValue = selection.get();
-    const tabValue = this.getTab();
     const editor = selection.getEditor();
     const setupConfiguration = vscode.workspace.getConfiguration("gcn");
     values = values.map(element => {
@@ -127,6 +126,7 @@ const source = {
       return withName ? name + value : value;
     })
     if (values.length !== 0) {
+      const tabValue = this.getTab();
       if (selectionValue.start.character < tabValue.length) {
         values[0] = " ".repeat(tabValue.length - selectionValue.start.character) + values[0];
       }
