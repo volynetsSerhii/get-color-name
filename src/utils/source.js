@@ -2,7 +2,7 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 10:15:38
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-08 16:05:41
+ * @Last Modified time: 2018-11-09 11:19:30
 * @flow
 */
 const clipboard = require('copy-paste');
@@ -55,7 +55,7 @@ const source = {
     const selectionValue = selection.get();
     const doc = vscode.window.activeTextEditor.document;
     const startLineText = doc.lineAt(selectionValue.start.line).text;
-    const startLineTab = startLineText ? startLineText.match(/\s/gy).join("") : "";
+    const startLineTab = startLineText.match(/\s/gy) ? startLineText.match(/\s/gy).join("") : "";
     return startLineTab;
   },
   convertTo: function (type) {

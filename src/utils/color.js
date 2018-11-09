@@ -2,7 +2,7 @@
 * @Author: Volynets Serhii
 * @Date: 2018-10-26 12:48:57
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-06 12:49:57
+ * @Last Modified time: 2018-11-09 11:14:51
 * @flow
 */
 const NAMES = require('../config/names.constants');
@@ -71,7 +71,7 @@ function getFunctionalColor(inputString) {
         //PartValues count
         partValues = value.match(/((?:0\.|)\d+([,%)]+))/g);
         //Analize partValue
-        if (partValues.join('') === value) {
+        if (partValues && partValues.join('') === value) {
           if (type === "RGB" && partValues.length === 3) {
             value = {
               r: getNumber(partValues[0].match(/(\d+(?=,))/g), 255),
@@ -296,7 +296,7 @@ const color = {
     inputString = [...inputString]
       .filter(el => el !== " ")
       .filter(el => el !== "\n");
-    inputString = inputString.join("");
+    inputString = inputString && inputString.join("");
     return getHexValues(inputString).concat(getFunctionalColor(inputString));
   },
   convert: function (value, fromType, toType) {

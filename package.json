@@ -2,7 +2,7 @@
     "name": "get-color-name",
     "displayName": "Get Color Name",
     "description": "Extension help to get color name from code.",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "publisher": "volynetsserhii",
     "license": "Apache-2.0",
     "icon": "assets/logo.png",

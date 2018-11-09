@@ -2,7 +2,7 @@
  * @Author: Volynets Serhii 
  * @Date: 2018-10-29 15:42:16 
  * @Last Modified by: Volynets Serhii
- * @Last Modified time: 2018-11-08 11:43:25
+ * @Last Modified time: 2018-11-09 11:01:17
  * @flow  
  */
 
@@ -16,7 +16,7 @@ function updateStatusBar (items) {
     const { statusBarColorPicker, statusBarColorCount } = items;
     let editor = window.activeTextEditor;
     if (!editor) {
-        items && items.forEach(item => item.hide());
+        Object.keys(items).forEach(item => items[item].hide());
         return;
     }
     let doc = editor.document;
@@ -41,7 +41,7 @@ function updateStatusBar (items) {
             statusBarColorPicker.text = "░▒███▒░ ▶ " + selectedColors[0].value;
         } else {
             statusBarColorPicker.text = "░░░░░░░ ▶ " + selectedValue;
-            statusBarColorPicker.color = "#AD65DF";
+            statusBarColorPicker.color = "#89C6FF";
         }
         statusBarColorCount.text = colorCount !== 1 ? `$(paintcan) ${colorCount} Colors` : `$(paintcan) 1 Color`;
         statusBarColorCount.tooltip = `Find ${colorCount} color${colorCount !== 1 ? "s" : ""} in active text editor.`;
