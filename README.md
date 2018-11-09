@@ -6,7 +6,9 @@
 ###### You can use keyboard shortcuts for quick call command "Get Color Name: configured"
 ####
 > ```"mac": "alt+cmd+v"```
+
 > ```"windows": "alt+ctrl+v"```
+
 > ```"linux": "alt+ctrl+v"```
 ## ⚡️ COMMANDS
 #### For get colors pair value-key in some specific format please use one of below commands:
