@@ -36,6 +36,7 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 >```"Selection"``` [default]
+
 >```"Clipboard"```
 
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSource.gif)
@@ -48,6 +49,7 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```false```
+
 > ```true``` [default]
 
 #### Name literal format
@@ -58,8 +60,11 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"lowercase"```
+
 > ```"camelCase"``` [default]
+
 > ```"CapitalLetters"```
+
 > ```"UPPERCASE"```
 
 #### Name prefix
@@ -70,8 +75,11 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"None"``` [default]
+
 > ```"--"``` 
+
 > ```"@"```
+
 > ```"$"```
 
 #### Name separator
@@ -82,7 +90,9 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"None"``` [default]
+
 > ```"-"``` 
+
 > ```"_"```
 
 #### Assign symbol
@@ -93,7 +103,9 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```": "``` [default]
+
 > ```" = "``` 
+
 > ```" := "```
 
 #### Value format
@@ -104,8 +116,11 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"Don't convert"``` 
+
 > ```"RGB hexadecimal"``` [default]
+
 > ```"RGB functional"```
+
 > ```"HSL functional"```
 
 #### Ending symbol
@@ -116,7 +131,9 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"None"```
+
 > ```", Comma"``` [default]
+
 > ```"; Semicolon"```
 
 #### Quotes symbol
@@ -127,7 +144,9 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```"None"``` [default]
+
 > ```"\" Double quotes"``` 
+
 > ```"' Single quotes"```
 
 #### XML support
@@ -138,6 +157,7 @@
 ```
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
 > ```false``` [default]
+
 > ```true"``` 
 
 ![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoXML.gif)
