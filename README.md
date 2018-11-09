@@ -1,41 +1,145 @@
-# Get color name
+# 🎨 GET COLOR NAME 
 
-This extension convert HEX color value to pair of key-value adapted for ReacNative.
+##### This extension help find color name for value or convert one color format to another.
 
-! Before use this extension please put some value to clipboard from any source (for example use CMD-C). Value should be one of this patterns:
-- "#000000",
-- "000000",
-- "#000",
-- "000"
+## ⌨️ KEYBOARD SHORTCUTS
+###### You can use keyboard shortcuts for quick call command "Get Color Name: configured"
+####
+> ```"mac": "alt+cmd+v"```
+> ```"windows": "alt+ctrl+v"```
+> ```"linux": "alt+ctrl+v"```
+## ⚡️ COMMANDS
+#### For get colors pair value-key in some specific format please use one of below commands:
+- ##### Get Color Name: configured
+- ##### Get Color Name: RGBhexadecimal
+- ##### Get Color Name: RGBfunctional
+- ##### Get Color Name: HSLfunctional
 
-## Features
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoGet.gif)
 
-1. 🆕 Convert clipboard HEX value to a pair key-value via shortcut CMD-ALT-V
+#### For convert values to some specific format please use one of below commands:
+- ##### Convert Color Value: configured
+- ##### Convert Color Value: RGBhexadecimal
+- ##### Convert Color Value: RGBfunctional
+- ##### Convert Color Value: HSLfunctional
 
-![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoShortcut.gif)
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoConvert.gif)
 
-2. 🆕 Convert clipboard HEX value to a pair key-value via comand line CMD-SHIFT-P
+## ⚙️ SETTINGS
+#### Source
+###### This setting determines the supremacy of the source. If the selected source has no color values, then the second one is analyzed.
+####
+```
+"gcn.input.source": "Selection"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+>```"Selection"``` [default]
+>```"Clipboard"```
 
-![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoConsole.gif)
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSource.gif)
 
-3. 🆕 Convert clipboard HEX value to a pair key-value via snippet (gcn)
+#### StatusBar controls vilible
+###### This setting defines the visability of statusbar.
+####
+```
+ "gcn.statusbar.support": true
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```false```
+> ```true``` [default]
 
-![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoSnippet.gif)
+#### Name literal format
+###### This setting defines the format of the color name literal.
+####
+```
+ "gcn.nameFormat.literal": "camelCase"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"lowercase"```
+> ```"camelCase"``` [default]
+> ```"CapitalLetters"```
+> ```"UPPERCASE"```
 
+#### Name prefix
+###### This setting defines the format of the color name prefix.
+####
+```
+ "gcn.nameFormat.prefix": "None"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"None"``` [default]
+> ```"--"``` 
+> ```"@"```
+> ```"$"```
 
-## Options (settings)
+#### Name separator
+###### This setting defines the format of the color name words separator.
+####
+```
+ "gcn.nameFormat.separator": "None"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"None"``` [default]
+> ```"-"``` 
+> ```"_"```
 
-#### No options.
+#### Assign symbol
+###### This setting defines the assign symbol.
+####
+```
+ "gcn.assign.symbol": ": "
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```": "``` [default]
+> ```" = "``` 
+> ```" := "```
 
-## Release
+#### Value format
+###### This setting defines the color value format.
+####
+```
+ "gcn.valueFormat.coding": "RGB hexadecimal"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"Don't convert"``` 
+> ```"RGB hexadecimal"``` [default]
+> ```"RGB functional"```
+> ```"HSL functional"```
 
-### Latest 0.0.x (2018.10.24)
+#### Ending symbol
+###### This setting defines the ending symbol.
+####
+```
+ "gcn.valueFormat.ending": ", Comma"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"None"```
+> ```", Comma"``` [default]
+> ```"; Semicolon"```
 
-- 💡 Creating snippets for extension (gnc).
-- Creating shortcut (CMD+ALT+V).
-- 🚀 Started extension.
+#### Quotes symbol
+###### This setting defines the quotes symbol.
+####
+```
+ "gcn.valueFormat.quotes": "\" Double quotes"
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```"None"``` [default]
+> ```"\" Double quotes"``` 
+> ```"' Single quotes"```
 
+#### XML support
+###### This setting defines the xml support.
+####
+```
+  "gcn.xml.support": false
+```
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Values
+> ```false``` [default]
+> ```true"``` 
 
-## Contributing
+![](https://raw.githubusercontent.com/volynetsSerhii/get-color-name/master/assets/demoXML.gif)
 
-Bugs, feature requests and more are welcome here [GitHub Issues](https://github.com/KamiKillertO/vscode-colorize/issues).
+### 🎯 Contributing
+
+Bugs, feature requests and more are welcome here [GitHubIssues](https://github.com/volynetsSerhii/get-color-name/issues).

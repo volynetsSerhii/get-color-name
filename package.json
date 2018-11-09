@@ -96,7 +96,7 @@
                 },
                 "gcn.valueFormat.quotes": {
                     "title": "Select output value quotes",
-                    "default": "\"",
+                    "default": "\" Double quotes",
                     "enum": [
                         "None",
                         "\" Double quotes",
@@ -107,7 +107,7 @@
                 },
                 "gcn.valueFormat.ending": {
                     "title": "Select output value ending",
-                    "default": ",",
+                    "default": ", Comma",
                     "enum": [
                         "None",
                         ", Comma",
