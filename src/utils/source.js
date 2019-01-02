@@ -120,7 +120,7 @@ const source = {
         value = quotes[0] + value + quotes[0];
       }
       const ending = setupConfiguration.get("valueFormat.ending");
-      if (quotes !== "None" && withName) {
+      if (ending !== "None" && withName) {
         value = value + ending[0];
       }
       return withName ? name + value : value;
